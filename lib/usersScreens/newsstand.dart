@@ -21,8 +21,8 @@ class Newsroom extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/news.jpg', 
-                width: 350, 
-                height: 250, 
+                width: 300, 
+                height: 200, 
                 fit: BoxFit.cover,
               ),
               const SizedBox(height: 20),
