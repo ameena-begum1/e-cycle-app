@@ -28,5 +28,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// integrated firebase and loaded .env file 
