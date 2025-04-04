@@ -24,9 +24,13 @@ class HomeServiceScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             const SizedBox(height: 20),
-            const Text(
-              "Home Service Feature Coming Soon!",
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: Text(
+                "Home Service Feature Coming Soon!",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
             ),
             const SizedBox(height: 10),
             const Padding(
