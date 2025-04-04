@@ -7,7 +7,7 @@ class HomeServiceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(86, 255, 255, 255),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: AppTheme.orangeColor,
         title: const Text("Home Service",style: TextStyle(fontWeight: FontWeight.bold),),
@@ -20,7 +20,7 @@ class HomeServiceScreen extends StatelessWidget {
              Image.asset(
                 'assets/images/home-service.jpg', 
                 width: 350, 
-                height: 250, 
+                height: 200, 
                 fit: BoxFit.cover,
               ),
             const SizedBox(height: 20),
