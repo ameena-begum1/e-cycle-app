@@ -34,6 +34,11 @@ migrate_working_dir/
 /build/
 .env
 
+# Ignore specific images
+assets/images/ameena.jpeg
+assets/images/mohammadi_fatima.jpeg
+assets/images/syeda_noor_fatima.jpeg
+
 # Symbolication related
 app.*.symbols
 
