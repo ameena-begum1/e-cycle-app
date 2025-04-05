@@ -10,23 +10,30 @@ class HomeServiceScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: AppTheme.orangeColor,
-        title: const Text("Home Service",style: TextStyle(fontWeight: FontWeight.bold),),
+        title: const Text(
+          "Home Service",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Icon(Icons.home_repair_service, size: 100, color: AppTheme.orangeColor),
-             Image.asset(
-                'assets/images/home-service.jpg', 
-                width: 350, 
-                height: 200, 
-                fit: BoxFit.cover,
-              ),
+            Image.asset(
+              'assets/images/home-service.jpg',
+              width: 300,
+              height: 200,
+              fit: BoxFit.cover,
+            ),
             const SizedBox(height: 20),
-            const Text(
-              "Home Service Feature Coming Soon!",
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: Text(
+                "Home Service Feature Coming Soon!",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
             ),
             const SizedBox(height: 10),
             const Padding(

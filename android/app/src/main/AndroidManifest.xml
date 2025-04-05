@@ -17,7 +17,7 @@
     </queries>
 
     <application
-        android:label="e_cycle"
+        android:label="E-cycle"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
