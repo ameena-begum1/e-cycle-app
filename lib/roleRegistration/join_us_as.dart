@@ -10,14 +10,11 @@ class RoleSelectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Join Us',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
+        title: Text('Join Us', style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Color(0xFF003366),
         foregroundColor: Colors.white,
       ),
-      body: Container(
+      body: SingleChildScrollView(child:  Container(
         color: Colors.white,
         padding: EdgeInsets.all(20),
         child: Column(
@@ -43,6 +40,8 @@ class RoleSelectionScreen extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
+            SizedBox(height: 20),
+            Image.asset("assets/images/join-us.jpg",width:300,height: 200,),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -105,7 +104,7 @@ class RoleSelectionScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }
 
@@ -141,9 +140,10 @@ class RoleCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: backgroundColor,
           borderRadius: BorderRadius.circular(20),
-          border: borderColor != null
-              ? Border.all(color: borderColor!, width: 2)
-              : null,
+          border:
+              borderColor != null
+                  ? Border.all(color: borderColor!, width: 2)
+                  : null,
           boxShadow: [
             BoxShadow(
               color: Colors.black26,
