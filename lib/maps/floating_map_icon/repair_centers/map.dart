@@ -90,7 +90,8 @@ _mapController.move(_mapController.camera.center, zoomLevel);
     return Scaffold(
       appBar: AppBar(
         title: Text("Nearby Repair Centers",style: TextStyle(fontWeight: FontWeight.bold),),
-        backgroundColor: AppTheme.greenColor,
+        backgroundColor: Color.fromARGB(255, 31, 107, 36),
+        foregroundColor: Colors.white,
       ),
       body: isLoading
           ? Center(child: CircularProgressIndicator())
