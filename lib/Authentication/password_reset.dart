@@ -2,24 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ForgotPasswordScreen extends StatefulWidget {
+class PasswordReset extends StatefulWidget {
   @override
-  _ForgotPasswordScreenState createState() => _ForgotPasswordScreenState();
+  _PasswordResetState createState() => _PasswordResetState();
 }
 
-class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+class _PasswordResetState extends State<PasswordReset> {
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _newPasswordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  User? user;
-
-  @override
-  void initState() {
-    super.initState();
-    user = _auth.currentUser;
-  }
 
   void showSnackBar(String message, Color color) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -43,29 +33,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
     try {
       await _auth.sendPasswordResetEmail(email: email);
-      showSnackBar('Password reset email sent successfully.', Colors.green);
-    } on FirebaseAuthException catch (e) {
-      showSnackBar(e.message ?? 'An error occurred.', Colors.red);
-    }
-  }
-
-  Future<void> changePassword() async {
-    final newPassword = _newPasswordController.text.trim();
-    final confirmPassword = _confirmPasswordController.text.trim();
-
-    if (newPassword.isEmpty || confirmPassword.isEmpty) {
-      showSnackBar('Please fill in all fields.', Colors.orange);
-      return;
-    }
-
-    if (newPassword != confirmPassword) {
-      showSnackBar('Passwords do not match.', Colors.red);
-      return;
-    }
-
-    try {
-      await user!.updatePassword(newPassword);
-      showSnackBar('Password changed successfully.', Colors.green);
+      showSnackBar('Password reset email sent. Check your inbox.', Colors.green);
     } on FirebaseAuthException catch (e) {
       showSnackBar(e.message ?? 'An error occurred.', Colors.red);
     }
@@ -97,14 +65,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isLoggedIn = user != null;
-
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         backgroundColor: Color(0xFF003366),
         title: Text(
-          isLoggedIn ? 'Change Password' : 'Reset Password',
+          'Reset Password',
           style: GoogleFonts.poppins(color: Colors.white),
         ),
         iconTheme: IconThemeData(color: Colors.white),
@@ -136,39 +102,24 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  isLoggedIn
-                      ? 'Secure your account by updating your password.'
-                      : 'Enter your email to receive a password reset link.',
+                  'Enter your email address to receive a password reset link.',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(fontSize: 15.5, color: Colors.grey[800]),
+                  style: GoogleFonts.poppins(
+                    fontSize: 15.5,
+                    color: Colors.grey[800],
+                  ),
                 ),
                 SizedBox(height: 30),
-                if (isLoggedIn) ...[
-                  _buildTextField(
-                    controller: _newPasswordController,
-                    label: 'New Password',
-                    obscure: true,
-                    icon: Icons.lock,
-                  ),
-                  SizedBox(height: 20),
-                  _buildTextField(
-                    controller: _confirmPasswordController,
-                    label: 'Confirm Password',
-                    obscure: true,
-                    icon: Icons.lock_outline,
-                  ),
-                ] else ...[
-                  _buildTextField(
-                    controller: _emailController,
-                    label: 'Email Address',
-                    icon: Icons.email,
-                  ),
-                ],
+                _buildTextField(
+                  controller: _emailController,
+                  label: 'Email Address',
+                  icon: Icons.email,
+                ),
                 SizedBox(height: 30),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: isLoggedIn ? changePassword : sendResetEmail,
+                    onPressed: sendResetEmail,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF003366),
                       padding: EdgeInsets.symmetric(vertical: 14),
@@ -178,7 +129,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       elevation: 4,
                     ),
                     child: Text(
-                      isLoggedIn ? 'Change Password' : 'Send Reset Link',
+                      'Send Reset Link',
                       style: GoogleFonts.poppins(
                         fontSize: 17,
                         color: Colors.white,

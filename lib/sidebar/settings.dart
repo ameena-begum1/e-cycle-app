@@ -1,4 +1,4 @@
-import 'package:e_cycle/Authentication/forget_password.dart';
+import 'package:e_cycle/Authentication/password_reset.dart';
 import 'package:flutter/material.dart';
 import 'package:e_cycle/Authentication/signin_screen.dart';
 import 'package:url_launcher/url_launcher.dart'; 
@@ -29,7 +29,7 @@ class SettingsScreen extends StatelessWidget {
             title: 'Change Password',
             onTap: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ForgotPasswordScreen()),
+              MaterialPageRoute(builder: (context) => PasswordReset()),
             ),
           ),
           _buildSettingsCard(
