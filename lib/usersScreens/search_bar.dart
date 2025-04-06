@@ -9,20 +9,19 @@ class SearchBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0), // Add padding
+      padding: const EdgeInsets.symmetric(horizontal: 8.0), 
       child: Row(
         children: [
-          /// Use `Expanded` to make the search bar take only available space
           Expanded(
             child: SizedBox(
-              height: 40, // Reduce height of the search bar
+              height: 40, 
               child: TextField(
                 decoration: InputDecoration(
                   hintText: "Search...",
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding: const EdgeInsets.symmetric(
-                      vertical: 10), // Reduce vertical padding
+                      vertical: 10), 
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                     borderSide: BorderSide.none,
@@ -49,9 +48,9 @@ class SearchBarWidget extends StatelessWidget {
           ),
           IconButton(
             icon: FaIcon(
-              FontAwesomeIcons.solidPaperPlane, // Paper rocket icon
-              color: Colors.white, // Match your UI color
-              size: 22, // Adjust size if needed
+              FontAwesomeIcons.solidPaperPlane, 
+              color: Colors.white, 
+              size: 22, 
             ),
             tooltip: "ई-Cycle Newsstand",
             onPressed: () {

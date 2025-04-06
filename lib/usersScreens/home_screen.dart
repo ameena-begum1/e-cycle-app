@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false, // Prevent FAB from moving up
+        resizeToAvoidBottomInset: false, 
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 7, 57, 106),
         iconTheme: IconThemeData(color: Colors.white),
@@ -76,7 +76,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            // Floating Action Button Positioned Correctly
             Positioned(
               right: 16.0,
               bottom: 16.0,
@@ -93,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CustomFAB(), // Ensure this widget is defined
+      floatingActionButton: CustomFAB(), 
       bottomNavigationBar: SafeArea(
         child: CustomBottomNavBar(
           selectedIndex: _selectedIndex,

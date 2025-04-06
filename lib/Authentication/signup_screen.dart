@@ -37,7 +37,7 @@ class _SignUpScreenState extends State<SignupScreen> {
   void _signUp() async {
     String email = _emailTextController.text.trim();
     String password = _passwordTextController.text.trim();
-    String fullName = _userNameTextController.text.trim(); // Get the full name
+    String fullName = _userNameTextController.text.trim(); 
 
     if (email.isEmpty || password.isEmpty || fullName.isEmpty) {
       _showSnackBar("Please fill all fields", Colors.orange);
@@ -308,7 +308,6 @@ class _SignUpScreenState extends State<SignupScreen> {
 // Function to handle Sign-Up with Google
 Future<void> signUpWithGoogle(BuildContext context) async {
   try {
-    // Show loading indicator
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -318,13 +317,12 @@ Future<void> signUpWithGoogle(BuildContext context) async {
       )),
     );
 
-    // Force user to pick an account every time
     final GoogleSignIn googleSignIn = GoogleSignIn();
-    await googleSignIn.signOut(); // Ensures the account picker appears
+    await googleSignIn.signOut(); 
 
     final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
     if (googleUser == null) {
-      Navigator.pop(context); // Remove loading indicator
+      Navigator.pop(context); 
       showSnackBar(context, "Google Sign-In cancelled", Colors.orange);
       return;
     }
@@ -336,28 +334,24 @@ Future<void> signUpWithGoogle(BuildContext context) async {
     );
 
     final String userEmail = googleUser.email;
-    final String userName = googleUser.displayName ?? "User"; // Get user name
+    final String userName = googleUser.displayName ?? "User"; 
 
-    // Check if the email already exists in Firestore
     final QuerySnapshot userQuery = await FirebaseFirestore.instance
         .collection('users')
         .where('email', isEqualTo: userEmail)
         .get();
 
     if (userQuery.docs.isNotEmpty) {
-      // If user already exists, prevent duplicate signup
       Navigator.pop(context);
       showSnackBar(context, "Account already exists. Please Sign In.", Colors.orange);
       return;
     }
 
-    // If user is new, proceed with sign-up
     final UserCredential userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
     final User? user = userCredential.user;
 
     if (user != null) {
-      // Save user details in Firestore
       await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
         'name': userName,
         'email': userEmail,
@@ -366,19 +360,17 @@ Future<void> signUpWithGoogle(BuildContext context) async {
       Navigator.pop(context);
       showSnackBar(context, "Sign-Up Successful!", Colors.green);
 
-      // Navigate to Home Screen or relevant screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => SigninScreen()),
       );
     }
   } catch (e) {
-    Navigator.pop(context); // Remove loading indicator
+    Navigator.pop(context);
     showSnackBar(context, "Google Sign-Up failed: ${e.toString()}", Colors.red);
   }
 }
 
-// Function to show a SnackBar message
 void showSnackBar(BuildContext context, String message, Color color) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(

@@ -60,12 +60,12 @@ class _EWasteDonationPortalState extends State<EWasteDonationPortal>
           'E-Waste Donation Portal',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.white, // Fixed text color
+            color: Colors.white, 
           ),
         ),
-        backgroundColor: Color(0xFF003366), // Updated color
+        backgroundColor: Color(0xFF003366),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white), // Ensure icon is visible
+          icon: Icon(Icons.arrow_back, color: Colors.white), 
           onPressed: () {
             Navigator.pop(context);
           },
@@ -78,7 +78,7 @@ class _EWasteDonationPortalState extends State<EWasteDonationPortal>
             Icon(
               Icons.volunteer_activism,
               size: 100,
-              color: Colors.red, // Updated color
+              color: Colors.red, 
             ),
             Padding(
               padding: EdgeInsets.all(12.0),
@@ -102,7 +102,7 @@ class _EWasteDonationPortalState extends State<EWasteDonationPortal>
                   });
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF003366), // Updated color
+                    backgroundColor: Color(0xFF003366),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10))),

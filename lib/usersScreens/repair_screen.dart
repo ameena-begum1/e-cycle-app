@@ -11,7 +11,7 @@ class RepairScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
     backgroundColor: Color(0xFF003366),
-    iconTheme: IconThemeData(color: Colors.white), // Makes the back button white
+    iconTheme: IconThemeData(color: Colors.white), 
     title: const Text(
       "Repair Services",
       style: TextStyle(color: Colors.white),
@@ -27,8 +27,6 @@ class RepairScreen extends StatelessWidget {
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-
-            // Two big square cards
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -36,7 +34,7 @@ class RepairScreen extends StatelessWidget {
                   child: _buildServiceCard(
                     title: "Book Home Service",
                     icon: Icons.home_repair_service,
-                    color: Colors.blue[900]!, // Changed to Dark Blue
+                    color: Colors.blue[900]!, 
                     onTap: () {
                       Navigator.push(
                         context,
@@ -65,7 +63,6 @@ class RepairScreen extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // AI-Powered Assistant
             _buildSleekCard(
               title: "AI-Assist",
               icon: Icons.support_agent,
@@ -78,11 +75,10 @@ class RepairScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // Image Below the Cards
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
-                'assets/images/repair.jpg', // Make sure this image exists in your assets
+                'assets/images/repair.jpg', 
                 height: 200,
                 width: double.infinity,
                 fit: BoxFit.cover,
@@ -91,7 +87,6 @@ class RepairScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // Strong, heartfelt quote
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
@@ -111,7 +106,6 @@ class RepairScreen extends StatelessWidget {
     );
   }
 
-  // Helper method to create a square-shaped card
   Widget _buildServiceCard({
     required String title,
     required IconData icon,
@@ -121,7 +115,7 @@ class RepairScreen extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 140, // Square shape
+        height: 140, 
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(12),
@@ -153,7 +147,6 @@ class RepairScreen extends StatelessWidget {
     );
   }
 
-  // Helper method to create a sleek rectangular card
   Widget _buildSleekCard({
     required String title,
     required IconData icon,
@@ -163,7 +156,7 @@ class RepairScreen extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 80, // Sleek rectangle
+        height: 80, 
         width: double.infinity,
         decoration: BoxDecoration(
           color: color,

@@ -77,25 +77,25 @@ class RoleSelectionScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20), // Add spacing between rows
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 RoleCard(
                   role: "Technician",
                   screen:
-                      TechnicianRegistrationScreen(), // Create this screen separately
-                  icon: Icons.build, // Wrench/Tools icon
-                  backgroundColor: Colors.blue, // Blue theme for technicians
+                      TechnicianRegistrationScreen(), 
+                  icon: Icons.build, 
+                  backgroundColor: Colors.blue,
                   textColor: Colors.white,
                   borderColor: Colors.white,
                 ),
                 RoleCard(
                   role: "Volunteer",
                   screen:
-                      RegisterVolunteerScreen(), // Create this screen separately
-                  icon: Icons.person, // Wrench/Tools icon
-                  backgroundColor: Colors.amber, //
+                      RegisterVolunteerScreen(), 
+                  icon: Icons.person, 
+                  backgroundColor: Colors.amber, 
                   textColor: Colors.white,
                   borderColor: Colors.white,
                 ),

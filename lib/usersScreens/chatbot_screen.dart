@@ -90,7 +90,7 @@ class _ChatScreenState extends State<ChatbotScreen> {
     return Scaffold(
       appBar: AppBar(
     backgroundColor: Color(0xFF003366),
-    iconTheme: IconThemeData(color: Colors.white), // Makes the back button white
+    iconTheme: IconThemeData(color: Colors.white), 
     title: const Text(
       "ई-Assistant",
       style: TextStyle(color: Colors.white),

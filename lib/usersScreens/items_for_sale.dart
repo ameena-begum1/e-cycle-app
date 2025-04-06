@@ -94,7 +94,7 @@ class _ItemsForSaleWidgetState extends State<ItemsForSaleWidget> {
                   var item = items[index];
                   var data = item.data() as Map<String, dynamic>;
                   String sellerId =
-                      data['userId'] ?? ''; // Fetch seller's userId
+                      data['userId'] ?? ''; 
 
                   List<String> productImages = [];
                   if (data['image_urls'] is List) {

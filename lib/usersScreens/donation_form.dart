@@ -210,8 +210,8 @@ class _DonationFormDialogState extends State<DonationFormDialog> {
   child: TextButton(
     onPressed: _selectPickupDate,
     style: TextButton.styleFrom(
-      padding: EdgeInsets.zero, // Removes extra padding
-      alignment: Alignment.centerLeft, // Align text to the left
+      padding: EdgeInsets.zero, 
+      alignment: Alignment.centerLeft, 
     ),
     child: Text(
       _pickupDate == null
