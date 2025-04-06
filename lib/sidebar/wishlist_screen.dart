@@ -29,7 +29,13 @@ class WishlistScreen extends StatelessWidget {
             return Center(child: Text('Error: ${snapshot.error}'));
           }
           if (!snapshot.hasData || snapshot.data.docs.isEmpty) {
-            return const Center(child: Text("Your Wishlist is Empty! 💔"));
+            return  Center(child: Column(
+              children: [
+                SizedBox(height: 50,),
+                Image.asset("assets/images/empty_wishlist.png"),
+                Text("Your Wishlist is Empty!"),
+              ],
+            ));
           }
 
           List<QueryDocumentSnapshot> wishlistItems = snapshot.data.docs;

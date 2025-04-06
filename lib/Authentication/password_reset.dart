@@ -1,3 +1,5 @@
+//forget or change password screen
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -64,85 +66,73 @@ class _PasswordResetState extends State<PasswordReset> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        backgroundColor: Color(0xFF003366),
-        title: Text(
-          'Reset Password',
-          style: GoogleFonts.poppins(color: Colors.white),
-        ),
-        iconTheme: IconThemeData(color: Colors.white),
-        elevation: 2,
+Widget build(BuildContext context) {
+  return Scaffold(
+    backgroundColor: Colors.white,
+    appBar: AppBar(
+      backgroundColor: Color(0xFF003366),
+      title: Text(
+        'Reset Password',
+        style: GoogleFonts.poppins(color: Colors.white),
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(24),
-          child: Container(
-            padding: EdgeInsets.all(24),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(18),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 12,
-                  offset: Offset(0, 4),
-                ),
-              ],
+      iconTheme: IconThemeData(color: Colors.white),
+      elevation: 2,
+    ),
+    body: Center(
+      child: SingleChildScrollView(
+        padding: EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(14),
+              child: Image.asset("assets/images/reset_password.png",width: 350,height: 250,)
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  Icons.lock_reset_rounded,
-                  size: 60,
-                  color: Color(0xFF003366),
+            SizedBox(height: 25),
+
+            Text(
+              'Enter your email address to receive a password reset link.',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.poppins(
+                fontSize: 15.5,
+                color: Colors.grey[800],
+              ),
+            ),
+            SizedBox(height: 30),
+
+            _buildTextField(
+              controller: _emailController,
+              label: 'Email Address',
+              icon: Icons.email,
+            ),
+            SizedBox(height: 30),
+
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: sendResetEmail,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF003366),
+                  padding: EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  elevation: 4,
                 ),
-                SizedBox(height: 20),
-                Text(
-                  'Enter your email address to receive a password reset link.',
-                  textAlign: TextAlign.center,
+                child: Text(
+                  'Send Reset Link',
                   style: GoogleFonts.poppins(
-                    fontSize: 15.5,
-                    color: Colors.grey[800],
+                    fontSize: 17,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(height: 30),
-                _buildTextField(
-                  controller: _emailController,
-                  label: 'Email Address',
-                  icon: Icons.email,
-                ),
-                SizedBox(height: 30),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: sendResetEmail,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF003366),
-                      padding: EdgeInsets.symmetric(vertical: 14),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      elevation: 4,
-                    ),
-                    child: Text(
-                      'Send Reset Link',
-                      style: GoogleFonts.poppins(
-                        fontSize: 17,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 }

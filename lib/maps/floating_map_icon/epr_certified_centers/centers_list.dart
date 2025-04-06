@@ -26,7 +26,8 @@ class _EprMapScreenState extends State<EprMapScreen> {
   Future<void> _getCurrentLocation() async {
     try {
       Position position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high);
+        desiredAccuracy: LocationAccuracy.high,
+      );
       setState(() {
         _currentLocation = LatLng(position.latitude, position.longitude);
       });
@@ -55,7 +56,9 @@ class _EprMapScreenState extends State<EprMapScreen> {
           Marker(
             markerId: MarkerId(doc.id),
             position: LatLng(lat, lng),
-            icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+              BitmapDescriptor.hueGreen,
+            ),
             infoWindow: InfoWindow(
               title: data['Company Name'] ?? "Unknown",
               // snippet: "Tap for more details",
@@ -88,14 +91,22 @@ class _EprMapScreenState extends State<EprMapScreen> {
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("⚠️ Select a location first or enable GPS!")));
+        SnackBar(content: Text("⚠️ Select a location first or enable GPS!")),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("EPR Recycling Centers",style: TextStyle(fontWeight: FontWeight.bold),),backgroundColor: Colors.green,),
+      appBar: AppBar(
+        title: Text(
+          "EPR Recycling Centers",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Color.fromARGB(255, 31, 107, 36),
+        foregroundColor: Colors.white,
+      ),
       body: Stack(
         children: [
           GoogleMap(
@@ -156,5 +167,3 @@ class _EprMapScreenState extends State<EprMapScreen> {
     );
   }
 }
-
-
