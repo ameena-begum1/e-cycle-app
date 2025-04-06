@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:e_cycle/Authentication/forget_password.dart';
 import 'package:e_cycle/Authentication/signup_screen.dart';
 import 'package:e_cycle/usersScreens/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     _checkUserStatus();
   }
 
-//if the user already logged in, So check, redirect him to home screen direclty
+  //if the user already logged in, So check, redirect him to home screen direclty
   void _checkUserStatus() async {
     await Future.delayed(Duration(seconds: 3));
     User? user = FirebaseAuth.instance.currentUser;
@@ -42,10 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Image.asset(
-          'assets/images/E-cycle_logo.jpeg',
-          height: 300,
-        ),
+        child: Image.asset('assets/images/E-cycle_logo.jpeg', height: 300),
       ),
     );
   }
@@ -65,17 +63,14 @@ class _SigninScreenState extends State<SigninScreen> {
   void showSnackBar(String message, Color color) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(
-          message,
-          style: TextStyle(color: Colors.white),
-        ),
+        content: Text(message, style: TextStyle(color: Colors.white)),
         backgroundColor: color,
         duration: Duration(seconds: 2),
       ),
     );
   }
 
-//signin with email and password
+  //signin with email and password
   void signIn() async {
     String email = _emailController.text.trim();
     String password = _passwordController.text.trim();
@@ -104,25 +99,29 @@ class _SigninScreenState extends State<SigninScreen> {
       } else if (e.code == 'too-many-requests') {
         showSnackBar("Too many failed attempts. Try again later.", Colors.red);
       } else if (e.code == 'network-request-failed') {
-        showSnackBar("Network error. Please check your internet connection.",
-            Colors.red);
+        showSnackBar(
+          "Network error. Please check your internet connection.",
+          Colors.red,
+        );
       } else {
         showSnackBar(
-            "Login failed. Please check your email or password.", Colors.red);
+          "Login failed. Please check your email or password.",
+          Colors.red,
+        );
       }
     }
   }
 
-//signin with google
+  //signin with google
   Future<void> signInWithGoogle() async {
     try {
       showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (context) => const Center(
-            child: CircularProgressIndicator(
-          color: Color(0xFF003366),
-        )),
+        builder:
+            (context) => const Center(
+              child: CircularProgressIndicator(color: Color(0xFF003366)),
+            ),
       );
       await GoogleSignIn().signOut();
 
@@ -144,10 +143,11 @@ class _SigninScreenState extends State<SigninScreen> {
       final String userEmail = googleUser.email;
 
       // Check if the email exists in Firestore
-      final QuerySnapshot userQuery = await FirebaseFirestore.instance
-          .collection('users')
-          .where('email', isEqualTo: userEmail)
-          .get();
+      final QuerySnapshot userQuery =
+          await FirebaseFirestore.instance
+              .collection('users')
+              .where('email', isEqualTo: userEmail)
+              .get();
 
       if (userQuery.docs.isEmpty) {
         Navigator.pop(context);
@@ -158,8 +158,8 @@ class _SigninScreenState extends State<SigninScreen> {
       }
 
       // If user exists, allow login
-      final UserCredential userCredential =
-          await FirebaseAuth.instance.signInWithCredential(credential);
+      final UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithCredential(credential);
       Navigator.pop(context);
 
       showSnackBar("Google Sign-In Successful!", Colors.green);
@@ -193,10 +193,7 @@ class _SigninScreenState extends State<SigninScreen> {
               ),
               Text(
                 "Revive • Reuse • Recycle",
-                style: GoogleFonts.poppins(
-                  fontSize: 16,
-                  color: Colors.white70,
-                ),
+                style: GoogleFonts.poppins(fontSize: 16, color: Colors.white70),
               ),
             ],
           ),
@@ -232,10 +229,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   onPressed: () async {
                     await signInWithGoogle();
                   },
-                  icon: Image.asset(
-                    'assets/images/gg.png',
-                    height: 24,
-                  ),
+                  icon: Image.asset('assets/images/gg.png', height: 24),
                   label: Text(
                     "Sign in with Google",
                     style: GoogleFonts.poppins(
@@ -252,13 +246,14 @@ class _SigninScreenState extends State<SigninScreen> {
                 Row(
                   children: [
                     Expanded(
-                        child:
-                            Divider(thickness: 1, color: Colors.blue.shade900)),
+                      child: Divider(thickness: 1, color: Colors.blue.shade900),
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Text("or",
-                          style:
-                              GoogleFonts.poppins(color: Colors.grey.shade600)),
+                      child: Text(
+                        "or",
+                        style: GoogleFonts.poppins(color: Colors.grey.shade600),
+                      ),
                     ),
                     Expanded(child: Divider(thickness: 1, color: Colors.green)),
                   ],
@@ -305,7 +300,14 @@ class _SigninScreenState extends State<SigninScreen> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ForgotPasswordScreen(),
+                        ),
+                      );
+                    },
                     child: Text(
                       'Forgot Password?',
                       style: GoogleFonts.poppins(color: Colors.red.shade700),
@@ -355,7 +357,7 @@ class _SigninScreenState extends State<SigninScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ],
