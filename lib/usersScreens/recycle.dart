@@ -48,7 +48,7 @@ class RecycleScreen extends StatelessWidget {
                 const SizedBox(width: 16),
                 Expanded(
                   child: _buildServiceCard(
-                    title: "Locate Certified Recycling Centers",
+                    title: "Locate Govt. Certified Recycling Centers",
                     icon: Icons.location_on,
                     color: Colors.red,
                     onTap: () {

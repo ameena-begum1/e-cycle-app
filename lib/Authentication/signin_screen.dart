@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:e_cycle/Authentication/forget_password.dart';
+import 'package:e_cycle/Authentication/password_reset.dart';
 import 'package:e_cycle/Authentication/signup_screen.dart';
 import 'package:e_cycle/usersScreens/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -304,7 +304,7 @@ class _SigninScreenState extends State<SigninScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ForgotPasswordScreen(),
+                          builder: (context) => PasswordReset(),
                         ),
                       );
                     },
