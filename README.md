@@ -34,7 +34,7 @@ It's time to take action! Adopt responsible e-waste disposal, support green init
 To Setup this project run
 
 ```bash
-git clone https://github.com/ameenah/e-cycle-app
+git clone https://github.com/ameena-begum1/e-cycle-app
 cd e-cycle-app
 flutter pub get
 flutter run
