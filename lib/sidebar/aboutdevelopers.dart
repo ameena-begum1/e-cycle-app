@@ -81,7 +81,6 @@ class AboutDevelopers extends StatelessWidget {
             ),
             SizedBox(height: 16),
 
-            // First Row: 2 cards
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -91,7 +90,6 @@ class AboutDevelopers extends StatelessWidget {
             ),
             SizedBox(height: 16),
 
-            // Second Row: Centered card
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

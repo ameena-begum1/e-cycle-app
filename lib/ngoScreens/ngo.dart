@@ -64,7 +64,7 @@ class _NgoDonationScreenState extends State<NgoDonationScreen> {
       context: context,
       builder: (context) => AlertDialog(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16), // Rounded corners
+          borderRadius: BorderRadius.circular(16), 
         ),
         title: Text(
           "Rejection Reason",
@@ -76,9 +76,8 @@ class _NgoDonationScreenState extends State<NgoDonationScreen> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Dropdown for predefined messages
             DropdownButtonFormField<String>(
-              isExpanded: true, // Ensures dropdown items don't overflow
+              isExpanded: true,
               decoration: InputDecoration(
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
@@ -87,7 +86,7 @@ class _NgoDonationScreenState extends State<NgoDonationScreen> {
                 hintText: "Select a reason...",
                 contentPadding: EdgeInsets.symmetric(
                     horizontal: 12,
-                    vertical: 10), // Avoids extra spacing issues
+                    vertical: 10), 
               ),
               items: rejectionMessages.map((message) {
                 return DropdownMenuItem(
@@ -96,20 +95,19 @@ class _NgoDonationScreenState extends State<NgoDonationScreen> {
                     message,
                     style: TextStyle(fontSize: 14),
                     overflow: TextOverflow
-                        .ellipsis, // Ensures long text doesn't break UI
+                        .ellipsis, 
                   ),
                 );
               }).toList(),
               onChanged: (value) {
                 _selectedReason = value;
                 _reasonController.text =
-                    value!; // Set text field to selected value
+                    value!; 
               },
             ),
 
             SizedBox(height: 10),
 
-            // Manual input field for custom reason
             TextField(
               controller: _reasonController,
               decoration: InputDecoration(
@@ -181,7 +179,6 @@ class _NgoDonationScreenState extends State<NgoDonationScreen> {
           padding: EdgeInsets.all(16.0),
           child: Column(
             children: [
-              // Welcome message
               Container(
                 padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -208,7 +205,6 @@ class _NgoDonationScreenState extends State<NgoDonationScreen> {
               ),
               SizedBox(height: 20),
 
-              // Donation List (Wrap it in Expanded to prevent overflow)
               Expanded(
                 child: StreamBuilder(
                   stream: _firestore.collection('donations').snapshots(),
@@ -225,7 +221,7 @@ class _NgoDonationScreenState extends State<NgoDonationScreen> {
                         return Card(
                           margin: EdgeInsets.symmetric(vertical: 10),
                           elevation: 4,
-                          color: Color(0xFFDAE3F3), // Light Blue-Gray
+                          color: Color(0xFFDAE3F3), 
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -234,7 +230,6 @@ class _NgoDonationScreenState extends State<NgoDonationScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // Title and product info
                                 Text(
                                   "Product: ${data['product_name']}",
                                   style: TextStyle(
@@ -250,7 +245,6 @@ class _NgoDonationScreenState extends State<NgoDonationScreen> {
                                 Text("Pickup Date: ${data['pickup_date']}"),
                                 SizedBox(height: 10),
 
-                                // Product image
                                 if (data['image_url'] != null)
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(8),
@@ -264,7 +258,6 @@ class _NgoDonationScreenState extends State<NgoDonationScreen> {
 
                                 SizedBox(height: 15),
 
-                                // Buttons
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,

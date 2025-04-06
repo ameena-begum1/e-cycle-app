@@ -11,6 +11,7 @@ class WishlistScreen extends StatelessWidget {
     String userId = _auth.currentUser?.uid ?? '';
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
           'Wishlist',

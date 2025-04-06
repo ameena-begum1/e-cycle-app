@@ -76,12 +76,11 @@ class _RegisterVolunteerScreenState extends State<RegisterVolunteerScreen> {
             key: _formKey,
             child: Column(
               children: [
-                // Profile Picture
                 GestureDetector(
                   onTap: _pickImage,
                   child: CircleAvatar(
                     radius: 60,
-                    backgroundColor: Colors.grey.shade300,// Grey Circular Avatar
+                    backgroundColor: Colors.grey.shade300,
                     child: _imageFile == null
                         ? Icon(Icons.person, size: 60, color: Colors.grey.shade700)
                         : ClipOval(
@@ -111,7 +110,6 @@ class _RegisterVolunteerScreenState extends State<RegisterVolunteerScreen> {
 
                 SizedBox(height: 20),
 
-                // Register Button
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -151,11 +149,11 @@ class _RegisterVolunteerScreenState extends State<RegisterVolunteerScreen> {
           fillColor: Colors.white,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Colors.grey), // Grey border for fields
+            borderSide: BorderSide(color: Colors.grey), 
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: const Color.fromARGB(255, 255, 193, 35), width: 2), // Yellow border on focus
+            borderSide: BorderSide(color: const Color.fromARGB(255, 255, 193, 35), width: 2),
           ),
         ),
         validator: (value) {

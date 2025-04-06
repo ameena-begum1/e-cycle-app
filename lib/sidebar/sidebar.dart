@@ -46,16 +46,13 @@ class _SidebarState extends State<Sidebar> {
     }
   }
 
-//function for user profile
   Widget _buildProfilePicture() {
     User? user = _auth.currentUser;
     if (user != null && user.photoURL != null) {
-      // If user has a profile picture from Google, show it
       return ClipOval(
         child: Image.network(user.photoURL!, fit: BoxFit.cover),
       );
     } else {
-      // If no profile picture, show the first letter of their name
       String initials = userName.isNotEmpty ? userName[0].toUpperCase() : "?";
       return CircleAvatar(
         backgroundColor: Colors.blueGrey,
@@ -157,7 +154,7 @@ class _SidebarState extends State<Sidebar> {
             leading: Icon(Icons.exit_to_app, color: Colors.black),
             title: Text('Logout', style: TextStyle(color: Colors.black)),
             onTap: () async {
-              await _auth.signOut(); // Ensure user is signed out
+              await _auth.signOut(); 
               Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (context) => SplashScreen()),

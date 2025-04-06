@@ -97,7 +97,7 @@ class _RecycleFormScreenState extends State<RecycleFormScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
-        iconTheme: IconThemeData(color: Colors.white), // White back button
+        iconTheme: IconThemeData(color: Colors.white), 
         title: Text(
           'Recycle Form',
           style: GoogleFonts.montserrat(fontWeight: FontWeight.bold, color: Colors.white),

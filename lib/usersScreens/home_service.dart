@@ -19,7 +19,6 @@ class HomeServiceScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Icon(Icons.home_repair_service, size: 100, color: AppTheme.orangeColor),
             Image.asset(
               'assets/images/home-service.jpg',
               width: 300,

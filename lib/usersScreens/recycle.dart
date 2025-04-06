@@ -10,7 +10,7 @@ class RecycleScreen extends StatelessWidget {
     return Scaffold(
   appBar: AppBar(
     backgroundColor: Color(0xFF003366),
-    iconTheme: IconThemeData(color: Colors.white), // Makes the back button white
+    iconTheme: IconThemeData(color: Colors.white), 
     title: const Text(
       "Recycle Services",
       style: TextStyle(color: Colors.white),
@@ -18,7 +18,7 @@ class RecycleScreen extends StatelessWidget {
   ),
 
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(), // Smooth scrolling
+        physics: BouncingScrollPhysics(), 
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,7 +29,6 @@ class RecycleScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            // Two big square cards
             Row(
               children: [
                 Expanded(
@@ -64,7 +63,6 @@ class RecycleScreen extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // AI-Powered Assistant 
             _buildSleekCard(
               title: "AI-Assist",
               icon: Icons.support_agent,
@@ -78,7 +76,6 @@ class RecycleScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // Image Below the Cards
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
@@ -105,14 +102,13 @@ class RecycleScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 30), // Extra space at bottom for better scrolling
+            const SizedBox(height: 30), 
           ],
         ),
       ),
     );
   }
 
-  // Helper method to create a square-shaped card
   Widget _buildServiceCard({
     required String title,
     required IconData icon,
@@ -154,7 +150,6 @@ class RecycleScreen extends StatelessWidget {
     );
   }
 
-  // Helper method to create a sleek rectangular card
   Widget _buildSleekCard({
     required String title,
     required IconData icon,

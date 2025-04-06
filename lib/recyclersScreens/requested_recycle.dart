@@ -46,7 +46,6 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
 
     if (pickedDate == null) return;
 
-    // Pick a time
     TimeOfDay? pickedTime = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
@@ -63,7 +62,6 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
 
     if (pickedTime == null) return;
 
-    // Combine date and time
     DateTime selectedDateTime = DateTime(
       pickedDate.year,
       pickedDate.month,
@@ -72,7 +70,6 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
       pickedTime.minute,
     );
 
-    // Show loading indicator while updating Firebase
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -89,7 +86,6 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
       ),
     );
 
-    // Update Firestore
     await FirebaseFirestore.instance
         .collection('recycle_form')
         .doc(requestId)
@@ -98,10 +94,8 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
       'pickup_time': selectedDateTime.toIso8601String(),
     });
 
-    // Close loading dialog
     Navigator.pop(context);
 
-    // Show success dialog
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -130,15 +124,13 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
         actions: [
           TextButton(
             onPressed: () async {
-              Navigator.pop(context); // Close dialog
+              Navigator.pop(context); 
 
-              // Delete the request from Firestore
               await FirebaseFirestore.instance
                   .collection('recycle_form')
                   .doc(requestId)
                   .delete();
 
-              // Optional: Show a snackbar for feedback
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text("Happy Recycling :)")),
               );
@@ -302,12 +294,11 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
         padding: EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Recycling Center Logo (Placeholder) & Name
             Column(
               children: [
                 CircleAvatar(
                   radius: 40,
-                  backgroundColor: Colors.grey[300], // Light grey placeholder
+                  backgroundColor: Colors.grey[300], 
                   child:
                       Icon(Icons.recycling, size: 40, color: Color(0xFF003366)),
                 ),
@@ -322,9 +313,8 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 20), // Spacing before total requests
+            SizedBox(height: 20), 
 
-            // Summary Section
             Container(
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -347,7 +337,6 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
             ),
             SizedBox(height: 20),
 
-            // Requests List
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
                 stream: _firestore
@@ -383,7 +372,7 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
     return Card(
       margin: EdgeInsets.symmetric(vertical: 10),
       elevation: 4,
-      color: Color(0xFFDAE3F3), // Light Blue-Gray
+      color: Color(0xFFDAE3F3), 
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
@@ -392,7 +381,6 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Product Image
             if (data['image_url'] != null && data['image_url']!.isNotEmpty)
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
@@ -401,7 +389,6 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
               ),
             SizedBox(height: 12),
 
-            // Product & User Info
             Text("${data['product_type']} - ${data['brand']}",
                 style: GoogleFonts.lato(
                     fontSize: 18,
@@ -415,7 +402,6 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
             Text("Phone: ${data['phone']}"),
             SizedBox(height: 12),
 
-            // Action Buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -434,7 +420,7 @@ class _RecyclerRequestsScreenState extends State<RecyclerRequestsScreen> {
                 ),
                 ElevatedButton.icon(
                   onPressed: () => _showRejectionDialog(
-                      context, doc.id), // Fixed function call
+                      context, doc.id), 
                   icon: Icon(Icons.close, color: Colors.white),
                   label: Text("Reject"),
                   style: ElevatedButton.styleFrom(

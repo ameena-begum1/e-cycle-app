@@ -11,10 +11,10 @@ class CategoryList extends StatefulWidget {
 }
 
 class _CategoryListState extends State<CategoryList> {
-  String selectedCategory = 'All'; // ✅ Default to "All"
+  String selectedCategory = 'All'; 
 
   final List<Map<String, dynamic>> categories = [
-    {'name': 'All', 'icon': Icons.category}, // 🔹 "All" category
+    {'name': 'All', 'icon': Icons.category}, 
     {'name': 'Smartphones', 'icon': Icons.phone_android},
     {'name': 'Laptops', 'icon': Icons.laptop},
     {'name': 'Tablets', 'icon': Icons.tablet_mac},
@@ -32,7 +32,7 @@ class _CategoryListState extends State<CategoryList> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      widget.onCategorySelected(''); // ✅ Ensures this runs after build
+      widget.onCategorySelected(''); 
     });
   }
 
@@ -59,11 +59,11 @@ class _CategoryListState extends State<CategoryList> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    radius: isSelected ? 35 : 30, // ✅ Bigger icon when selected
+                    radius: isSelected ? 35 : 30, 
                     backgroundColor: isSelected ? Color.fromARGB(255, 7, 57, 106) : Color.fromARGB(255, 6, 78, 150),
                     child: Icon(
                       category['icon'],
-                      size: isSelected ? 40 : 30, // ✅ Bigger icon when selected
+                      size: isSelected ? 40 : 30, 
                       color: Colors.white,
                     ),
                   ),
