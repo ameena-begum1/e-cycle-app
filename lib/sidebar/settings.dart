@@ -1,7 +1,6 @@
+import 'package:e_cycle/Authentication/forget_password.dart';
 import 'package:flutter/material.dart';
 import 'package:e_cycle/Authentication/signin_screen.dart';
-import 'package:e_cycle/reusablewidgets/app_colors.dart';
-import 'package:e_cycle/sidebar/ChangePasswordScreen.dart';
 import 'package:url_launcher/url_launcher.dart'; 
 
 class SettingsScreen extends StatelessWidget {
@@ -30,7 +29,7 @@ class SettingsScreen extends StatelessWidget {
             title: 'Change Password',
             onTap: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ChangePasswordScreen()),
+              MaterialPageRoute(builder: (context) => ForgotPasswordScreen()),
             ),
           ),
           _buildSettingsCard(
