@@ -1,19 +1,8 @@
-import java.util.Properties
-
 plugins {
     id("com.android.application")
     id("kotlin-android")
     id("dev.flutter.flutter-gradle-plugin")
     id("com.google.gms.google-services") // Firebase
-}
-
-// Load .env
-val localProperties = Properties()
-val envFile = rootProject.file(".env")
-if (envFile.exists()) {
-    envFile.inputStream().use { input ->
-        localProperties.load(input)
-    }
 }
 
 android {
@@ -36,9 +25,6 @@ android {
         targetSdk = 34 // Replace with flutter.targetSdkVersion if needed
         versionCode = 1 // Set manually if `flutter.versionCode` isn't working
         versionName = "1.0" // Set manually if `flutter.versionName` isn't working
-
-     // Google Maps Key via manifestPlaceholders
-        manifestPlaceholders["googleMapsApiKey"] = localProperties["GOOGLE_MAPS_API_KEY"] ?: ""
     }
 
     buildTypes {
