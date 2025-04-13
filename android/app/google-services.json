@@ -1,45 +1,53 @@
 {
   "project_info": {
-    "project_number": "448223279941",
-    "project_id": "ecycle-app2",
-    "storage_bucket": "ecycle-app2.firebasestorage.app"
+    "project_number": "971618052811",
+    "project_id": "e-cycle3-cf4eb",
+    "storage_bucket": "e-cycle3-cf4eb.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:448223279941:android:dcb2f575a05efe18f65c2c",
+        "mobilesdk_app_id": "1:971618052811:android:006f803a8ff22016e0894e",
         "android_client_info": {
-          "package_name": "com.example.e_cycle"
+          "package_name": "com.triwizard.e_cycle"
         }
       },
       "oauth_client": [
         {
-          "client_id": "448223279941-gefttkv5mb4o5gnog53q5qkp41qevghk.apps.googleusercontent.com",
+          "client_id": "971618052811-b1g2tavcp84u93s35akuqn8nbe4d0h0j.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.e_cycle",
+            "package_name": "com.triwizard.e_cycle",
             "certificate_hash": "35078cdc0888ade12e394bd1941840f9e0ae3021"
           }
         },
         {
-          "client_id": "448223279941-ub88o2614bo33e2tjgimsupveab9181q.apps.googleusercontent.com",
+          "client_id": "971618052811-khov97kislf1mqogbi213r9tf6u0tvah.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.triwizard.e_cycle",
+            "certificate_hash": "b3d9747adf388560765bfe8aaa19016eb0af642c"
+          }
+        },
+        {
+          "client_id": "971618052811-hmr0135j8fed70ts585i6c3vuc2joie7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA1Ev6HGnpKzYrTGn82mwP_m3bKEL6zgsU"
+          "current_key": "AIzaSyCCyfNd83-fhfdrLpXK1EUWseZms4lyjno"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "448223279941-ub88o2614bo33e2tjgimsupveab9181q.apps.googleusercontent.com",
+              "client_id": "971618052811-hmr0135j8fed70ts585i6c3vuc2joie7.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "448223279941-j9b56tc64jvvbd5fsv8f2kfqm8lg3fkf.apps.googleusercontent.com",
+              "client_id": "971618052811-2clocg1aui2s49j4i8og07s8l4tn7qnr.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.example.eCycle"

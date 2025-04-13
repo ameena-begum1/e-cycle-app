@@ -41,51 +41,52 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAzwBJxAgWrlb3va8gCFOr1-asPZQ-iGAo',
-    appId: '1:448223279941:web:a2c848ed32c1f328f65c2c',
-    messagingSenderId: '448223279941',
-    projectId: 'ecycle-app2',
-    authDomain: 'ecycle-app2.firebaseapp.com',
-    storageBucket: 'ecycle-app2.firebasestorage.app',
-    measurementId: 'G-DXJD1VYQGJ',
+    apiKey: 'AIzaSyANqH-1Tmh19F83iok_zBNh0KsRrIRuiQQ',
+    appId: '1:971618052811:web:1995e410320b3b01e0894e',
+    messagingSenderId: '971618052811',
+    projectId: 'e-cycle3-cf4eb',
+    authDomain: 'e-cycle3-cf4eb.firebaseapp.com',
+    storageBucket: 'e-cycle3-cf4eb.firebasestorage.app',
+    measurementId: 'G-TQ3EV1CSNW',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA1Ev6HGnpKzYrTGn82mwP_m3bKEL6zgsU',
-    appId: '1:448223279941:android:dcb2f575a05efe18f65c2c',
-    messagingSenderId: '448223279941',
-    projectId: 'ecycle-app2',
-    storageBucket: 'ecycle-app2.firebasestorage.app',
+    apiKey: 'AIzaSyCCyfNd83-fhfdrLpXK1EUWseZms4lyjno',
+    appId: '1:971618052811:android:006f803a8ff22016e0894e',
+    messagingSenderId: '971618052811',
+    projectId: 'e-cycle3-cf4eb',
+    storageBucket: 'e-cycle3-cf4eb.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCCdoFmewBmD3pq5yZCXh1hvsm_DihyiC4',
-    appId: '1:448223279941:ios:eb9396e6d6759384f65c2c',
-    messagingSenderId: '448223279941',
-    projectId: 'ecycle-app2',
-    storageBucket: 'ecycle-app2.firebasestorage.app',
-    iosClientId: '448223279941-j9b56tc64jvvbd5fsv8f2kfqm8lg3fkf.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAW4cAB_-U28CX8baHsqUH8xKtxYC7me08',
+    appId: '1:971618052811:ios:4261b33222161666e0894e',
+    messagingSenderId: '971618052811',
+    projectId: 'e-cycle3-cf4eb',
+    storageBucket: 'e-cycle3-cf4eb.firebasestorage.app',
+    androidClientId: '971618052811-b1g2tavcp84u93s35akuqn8nbe4d0h0j.apps.googleusercontent.com',
+    iosClientId: '971618052811-2clocg1aui2s49j4i8og07s8l4tn7qnr.apps.googleusercontent.com',
     iosBundleId: 'com.example.eCycle',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCCdoFmewBmD3pq5yZCXh1hvsm_DihyiC4',
-    appId: '1:448223279941:ios:eb9396e6d6759384f65c2c',
-    messagingSenderId: '448223279941',
-    projectId: 'ecycle-app2',
-    storageBucket: 'ecycle-app2.firebasestorage.app',
-    iosClientId: '448223279941-j9b56tc64jvvbd5fsv8f2kfqm8lg3fkf.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAW4cAB_-U28CX8baHsqUH8xKtxYC7me08',
+    appId: '1:971618052811:ios:4261b33222161666e0894e',
+    messagingSenderId: '971618052811',
+    projectId: 'e-cycle3-cf4eb',
+    storageBucket: 'e-cycle3-cf4eb.firebasestorage.app',
+    androidClientId: '971618052811-b1g2tavcp84u93s35akuqn8nbe4d0h0j.apps.googleusercontent.com',
+    iosClientId: '971618052811-2clocg1aui2s49j4i8og07s8l4tn7qnr.apps.googleusercontent.com',
     iosBundleId: 'com.example.eCycle',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAzwBJxAgWrlb3va8gCFOr1-asPZQ-iGAo',
-    appId: '1:448223279941:web:4be570a834dbc148f65c2c',
-    messagingSenderId: '448223279941',
-    projectId: 'ecycle-app2',
-    authDomain: 'ecycle-app2.firebaseapp.com',
-    storageBucket: 'ecycle-app2.firebasestorage.app',
-    measurementId: 'G-603GHH7K6H',
+    apiKey: 'AIzaSyANqH-1Tmh19F83iok_zBNh0KsRrIRuiQQ',
+    appId: '1:971618052811:web:86ee6cae5f424ca9e0894e',
+    messagingSenderId: '971618052811',
+    projectId: 'e-cycle3-cf4eb',
+    authDomain: 'e-cycle3-cf4eb.firebaseapp.com',
+    storageBucket: 'e-cycle3-cf4eb.firebasestorage.app',
+    measurementId: 'G-CBQSD94R9T',
   );
-
 }

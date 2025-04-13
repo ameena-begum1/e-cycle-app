@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -5,8 +8,14 @@ plugins {
     id("com.google.gms.google-services") // Firebase
 }
 
+val keystoreProperties = Properties()
+val keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+}
+
 android {
-    namespace = "com.example.e_cycle"
+    namespace = "com.triwizard.e_cycle"
     compileSdk = 35 // Replace with your Flutter compileSdkVersion
     ndkVersion = "27.0.12077973" // Use flutter.ndkVersion if available
 
@@ -20,16 +29,31 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.e_cycle"
+        applicationId = "com.triwizard.e_cycle"
         minSdk = 23
         targetSdk = 34 // Replace with flutter.targetSdkVersion if needed
         versionCode = 1 // Set manually if `flutter.versionCode` isn't working
-        versionName = "1.0" // Set manually if `flutter.versionName` isn't working
+        versionName = "1.0.0" // Set manually if `flutter.versionName` isn't working
+    }
+
+    signingConfigs {
+        create("release") {
+            keyAlias = keystoreProperties["keyAlias"] as String
+            keyPassword = keystoreProperties["keyPassword"] as String
+            storeFile = file(keystoreProperties["storeFile"] as String)
+            storePassword = keystoreProperties["storePassword"] as String
+        }
     }
 
     buildTypes {
-        release {
-            signingConfig = signingConfigs.getByName("debug") // Update if you have a release key
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("release")
+            isMinifyEnabled = false
+            isShrinkResources = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 }
