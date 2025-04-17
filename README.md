@@ -166,7 +166,7 @@ flutter run
      Register your organization to receive usable electronic donations
     </td>
      <td align="center" width="25%">
-      <img src="https://i.postimg.cc/pL4HfW3t/image.png" width="120"/><br>
+      <img src="https://i.postimg.cc/kgcQkJD3/image.png" width="120"/><br>
       <b>Technician Registration Screen</b></br>
      Join as a technician to offer trusted repair services and support sustainable practices.
     </td>
